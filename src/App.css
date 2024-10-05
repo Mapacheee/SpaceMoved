@@ -40,3 +40,27 @@
 .read-the-docs {
   color: #888;
 }
+.App {
+  text-align: center;
+}
+
+.button-group {
+  margin: 20px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.virtual-image {
+  width: 300px;
+  height: auto;
+  margin-top: 20px;
+}

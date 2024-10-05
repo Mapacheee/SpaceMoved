@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Estado para manejar el entorno mostrado
+  const [currentView, setCurrentView] = useState('home');
 
+  // Función para cambiar la vista al hacer clic en los botones
+  const handleButtonClick = (view) => {
+    setCurrentView(view);
+  
+  };
+
+  // JSX para mostrar el contenido basado en la vista actual
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <h1>Sistema Virtual</h1>
+
+      {/* Botones */}
+      <div className="button-group">
+        <button onClick={() => handleButtonClick('entrenar')}>Entrenar</button>
+        <button onClick={() => handleButtonClick('metricas')}>Métricas</button>
+        <button onClick={() => handleButtonClick('social')}>Social</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      {/* Contenido dinámico según la vista */}
+      <div className="content">
+        {currentView === 'entrenar' && (
+          <div>
+            <h2>Entrenar</h2>
+            <img src="/assets/entrenar.jpg" alt="Entrenar" className="virtual-image" />
+            <p>Aquí puedes visualizar tu entorno de entrenamiento.</p>
+          </div>
+        )}
+        {currentView === 'metricas' && (
+          <div>
+            <h2>Métricas</h2>
+            <img src="/assets/metricas.jpg" alt="Métricas" className="virtual-image" />
+            <p>Aquí puedes visualizar tus métricas de rendimiento.</p>
+          </div>
+        )}
+        {currentView === 'social' && (
+          <div>
+            <h2>Social</h2>
+            <img src="/assets/social.jpg" alt="Social" className="virtual-image" />
+            <p>Aquí puedes interactuar con otros usuarios.</p>
+          </div>
+        )}
+        {currentView === 'home' && <p>Haz clic en uno de los botones para comenzar.</p>}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
