@@ -48,6 +48,11 @@ function App() {
         )}
         {currentView === 'home' && <p>Haz clic en uno de los botones para comenzar.</p>}
       </div>
+      <div>
+        <label >gomma
+          
+        </label>
+      </div>
     </div>
   );
 }
